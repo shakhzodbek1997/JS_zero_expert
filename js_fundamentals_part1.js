@@ -39,6 +39,11 @@ const averD = (dolphine1 + dolphine2 + dolphine3)/3
  }
 
 
+//   challenge #4
+const bill = 275;
+const tip = (bill <= 300 && bill >=50) ? bill *0.15 : bill*0.25;
+consolelog 
+
 
 
 
