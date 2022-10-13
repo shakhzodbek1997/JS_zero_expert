@@ -19,6 +19,27 @@ if(BMIJohn > BMIMark){
     console.log(`Mark's BMI (${BMIMark}) is higher than John's (${BMIJohn})!`)
 }
 
+// challenge #3
+ const dolphine1 = 96;
+ const dolphine2 = 108;
+ const dolphine3 = 89;
+const averD = (dolphine1 + dolphine2 + dolphine3)/3
+ 
+ const koala1 = 88;
+ const koala2 = 91;
+ const koala3 = 110;
+ const averK = (koala1 + koala2 + koala3)/3
+
+ if(averD > averK){
+    console.log(`The Dolhine's score is (${averD}) HIGHER than Koala's average score (${averK})`)
+ }else if(averD<averK){
+    console.log(`The Dolhine's score is (${averD}) LESS than Koala's average score (${averK})`)
+ }else{
+    console.log(`The Dolhine's average scores (${averD}) AND than Koala's average scores (${averK}) are EQUAL!!!`)
+ }
+
+
+
 
 
 
