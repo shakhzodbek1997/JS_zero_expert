@@ -34,7 +34,7 @@ console.log(age);
  */
 
 // Coding Challenge # part 2
-
+/**
 const calcAverage = (a, b, c) => (a+b+c)/3; // average score
 console.log(calcAverage(3, 4, 5))
 
@@ -52,4 +52,38 @@ const checkWinner = function(averD, averK){
     }
 }
 
-checkWinner(scoreD, scoreK);
+checkWinner(scoreD, scoreK); 
+ */
+
+//  --- arrays Coding Challenge #2
+ 
+const calcTip = function(bill){
+    return bill  >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+
+const bills = [125, 555, 44];
+
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+
+
+
+console.log(bills, tips, totals);
+
+// const  calculateTip = bill => bill >= 50 && bill <=300 ? bill * 0.15 : bill * 0.2;
+
+// DOT vs Bracket Notations # Challenge
+/**
+ Jonas has 3 friends, and his best friend is called Michael 
+ */
+
+ const jonas = {
+    firstName: "Jonas",
+    lastName: "Guchek",
+    age: 25,
+    job: "Web Developer",
+    friends: ["Michael", "Tom", "Elon"]
+ }
+
+ console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`)
