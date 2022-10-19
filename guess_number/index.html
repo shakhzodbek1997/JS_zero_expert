@@ -1,0 +1,48 @@
+<head>
+    <title>Guess Number</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="guess.png">
+</head>
+<body class="text-center">
+    <nav class="navbar navbar-dark bg-dark">
+        <!-- Navbar content -->
+        <a class="navbar-brand" href="#"> 
+            <span>
+                <img 
+                    src="guess.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="margin-right: 30px;" 
+                    alt="guess" 
+                />
+            </span>
+            Guess The Number
+        </a>
+    </nav>
+    <main>
+        <h1 class="banner p-3">1.2.3.</h1>
+        <div class="form-group ">
+            <input id="number-guess" class="form-control form-control-lg" type="number" placeholder="What's your guess?">
+        </div>
+        <div id="result">
+            <!-- This is where the result will be-->
+        </div>
+        <button type="button" id="number-submit" class="btn btn-lg btn-secondary">Check Me</button>
+        <button type="button" id="restart-game" class="btn btn-lg btn-light">Restart</button>
+        <div id="history">
+            <!-- This is where the guess history will be-->
+        </div>
+        <button>
+            Button
+        </button>
+
+        <img class="img-class" src="guess.png" alt="Guess image" width="39px" height="39px"/>
+    </main>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

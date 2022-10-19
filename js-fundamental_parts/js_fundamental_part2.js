@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /**
 let hasDriversLicense = false;
 const passtest = false;
@@ -79,7 +79,7 @@ console.log(bills, tips, totals);     */
  Jonas has 3 friends, and his best friend is called Michael 
  */
 
- /**
+/**
 
  const jonas = {
     firstName: "Jonas",
@@ -92,8 +92,7 @@ console.log(bills, tips, totals);     */
  console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`)
  */
 
-
- // Coding Challenge # 3
+// Coding Challenge # 3
 /**
  const mark = {
     fullName: "Mark Miller",
@@ -131,7 +130,7 @@ console.log(bills, tips, totals);     */
  }
   */
 
- // LOOping Arrays
+// LOOping Arrays
 
 //  const years = [1991, 1995, 2001, 2019];
 //  const ages = [];
@@ -139,36 +138,36 @@ console.log(bills, tips, totals);     */
 //  for(let i = 0; i < years.length; i++){
 //     ages.push(2022 -years[i]);
 //  }
-//  console.log(ages); 
+//  console.log(ages);
 
 //  ---------- Fudamental JS part 2
- const calcTip = function(bill){
-    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
- }
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
 
- const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
- const tips = [];
- const totals = [];
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
 
- for(let i = 0; i < bills.length; i++){
-    const tip = calcTip(bills[i]);
-    tips.push(tip);
-    totals.push(tip + bills[i]);
- }
- console.log(bills)
- console.log("-----------------------")
+for (let i = 0; i < bills.length; i++) {
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(tip + bills[i]);
+}
+console.log(bills);
+console.log("-----------------------");
 
- console.log(tips)
- console.log("-----------------------")
+console.log(tips);
+console.log("-----------------------");
 
- console.log(totals)
- console.log("-----------------------")
+console.log(totals);
+console.log("-----------------------");
 
- console.log(bills, tips, totals)
+console.log(bills, tips, totals);
 
- const calcAverage = function(arr){
-    let sum = 0;
-    for(let i = 0; i < arr.length; i++){
-        sum = sum + arr[i];
-    }
- }
+const calcAverage = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+};
