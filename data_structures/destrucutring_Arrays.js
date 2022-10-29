@@ -71,30 +71,3 @@ console.log(u, h, g); // output >> 55 1 1
 
 
 
-
-
-
-
-
-/**
- * 
- * openingHours: {
-        thu: {
-            open: 12,
-            close: 22,
-        },
-        fri: {
-            open: 11,
-            close: 23,
-        },
-        sat: {
-            open: 0,
-            close: 24,
-        },
-    },
-
-    order: function(starterIndex, minIndex){
-        return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
-    },
- * 
- */
