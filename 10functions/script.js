@@ -76,12 +76,9 @@ document.body.addEventListener('click', high5);
  */
 // greet('Hello')('Piter')('Guchek') // outPut is same: Hello Piter Guchek
 
-// const greetArrow = (greeting) => (name) => console.log(`${greeting} ${name}`);
-// const greeter2Hey = greetArrow('Hey!');
-// greeter2Hey('Jonas'); greeter2Hey('Martha');
+const greetArrow = (greeting) => (name) => console.log(`${greeting} ${name}`);
+const greeter2Hey = greetArrow('Hey!');
+greeter2Hey('Jonas'); greeter2Hey('Martha');
 
-// // in one line
-// greetArrow('Hello')('Piter');
-
-
-
+// in one line
+greetArrow('Hello')('Piter');
