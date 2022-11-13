@@ -69,3 +69,22 @@ console.log(depositsFor);
 
 const withdrawals = movements.filter(mov => mov < 0);
 console.log(withdrawals);
+
+///------------REDUCE METHOD ---------------
+
+console.log("This is Movements: ",movements);
+const balance = movements.reduce((accumulator, curr) => accumulator + curr, 0);
+
+console.log("THis is balance: ",balance);
+
+let balance2 = 0;
+for (const mov of movements)balance2+=mov;
+console.log("this is Balance 2: ", balance2);
+  
+// ------------Geting maximum value with reduce----------------
+const max = movements.reduce((acc, mov) => {
+    if(acc > mov) return "acc is: ", acc, " and MOV is: ", mov
+    else return "Else case is working:(MOV) ", mov;
+}, movements[0]);
+console.log("MAX is: ", max)
+
