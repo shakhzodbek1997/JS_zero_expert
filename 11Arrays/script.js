@@ -77,14 +77,12 @@ const displayMovements = function(movements){
         containerMovements.insertAdjacentHTML('afterbegin', html);
     })
 }
-displayMovements(account1.movements);
 
 
 const calcDisplayBalance = function(movements){
     const balance = movements.reduce((acc, mov) => acc + mov, 0);
     labelBalance.textContent = `${balance} €`;
 };
-calcDisplayBalance(account1.movements);
 
 
 
@@ -99,28 +97,70 @@ const calcDisplaySummary = function(movements){
         .filter(mov => mov > 0)
         .map(deposit => deposit*1.2/100)
         .filter((int, i, arr) => {
-            console.log(arr);
+            // console.log(arr);
             return int >= 1; 
         })
         .reduce((acc, int) => acc + int, 0);
         labelSumInterest.textContent = `${interest}€`;
          
 }
-calcDisplaySummary(account1.movements);
-
+ 
 
 
 const createUsernames = function(accs){
     accs.forEach(function(acc){
-        acc.username = acc.owner.toLowercase().split(' ').map(name => name[0]).join('');
+        acc.username = acc.owner
+            .toLowerCase()
+            .split(' ')
+            .map(name => name[0])
+            .join('');
     })
 }
 createUsernames(accounts);
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
+
+// Event Handler
+let currentAccount;
+
+
+btnLogin.addEventListener('click', function(e) {
+    // Prevent Form Submiting
+    e.preventDefault();
+
+    currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+    console.log(currentAccount);
+
+    if(currentAccount?.pin === Number(inputLoginPin.value)){
+        // Display UI and message
+        labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`; 
+        containerApp.style.opacity = 100; 
+
+        // Clear Input Fields
+        inputLoginUsername.value = inputLoginPin.value = '';
+        inputLoginPin.blur();
+
+
+        // Display movements 
+        displayMovements(currentAccount.movements);        
+
+        // Display Balance
+        calcDisplayBalance(currentAccount.movements);
+        
+
+        // Display Summary
+        calcDisplaySummary(currentAccount.movements);
+    }
+})
+
+
+
+// ///////////////////////////////////////////////
+// ///////////////////////////////////////////////
 // LECTURES
 
-console.log("------FOR EACH WITH THE MAPS---------");
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];  // + values are deposite - values are withdrawals
+
+
+// console.log("------FOR EACH WITH THE MAPS---------");
 
 const currencies = new Map([
   ['USD', 'United States dollar'],
@@ -129,114 +169,113 @@ const currencies = new Map([
 ]);
 
 currencies.forEach(function(currentValue, key, map){
-    console.log(`${key}: ${currentValue}`); 
+    // console.log(`${key}: ${currentValue}`); 
 })
 
 
-console.log("------FOR EACH WITH THE SETS ---------");
+// console.log("------FOR EACH WITH THE SETS ---------");
 
 const currenciesUnique = new Set(['USD', 'GPR', 'USD', 'EUR',  'EUR']);
-console.log(currenciesUnique);
+// console.log(currenciesUnique);
 
 currenciesUnique.forEach(function(value, key, map){
-    console.log("Values is: ", value);
-    console.log("Key is: ", key);
+    // console.log("Values is: ", value);
+    // console.log("Key is: ", key);
     // console.log("map is: ", map)
 })
 
 
-console.log("---------------FOR OF methd------------");
+// console.log("---------------FOR OF methd------------");
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];  // + values are deposite - values are withdrawals
 
 for(const movement of movements){
     if(movement > 0){
-        console.log(`You desposited ${movement}`)
+        // console.log(`You desposited ${movement}`)
     }else{
-        console.log(`You withdrew ${Math.abs(movement)}`)
+        // console.log(`You withdrew ${Math.abs(movement)}`)
     }
 }
 
-console.log('----------------FOR OF with DESTRUCTURING-------------');
+// console.log('----------------FOR OF with DESTRUCTURING-------------');
 for(const [i, movement] of movements.entries()){
     if(movement > 0){
-        console.log(`Movement ${i+1}: You desposited ${movement}`)
+        // console.log(`Movement ${i+1}: You desposited ${movement}`)
     }else{
-        console.log(`Movement ${i+1}: You withdrew ${Math.abs(movement)}`)
+        // console.log(`Movement ${i+1}: You withdrew ${Math.abs(movement)}`)
     }
 }
 
 
-console.log('----------------FOR EACH----------');
+// console.log('----------------FOR EACH----------');
 movements.forEach(function(movement, index, arr ) {
     if(movement > 0){
-        console.log(`Movement ${index+1}: You desposited ${movement}`)
+        // console.log(`Movement ${index+1}: You desposited ${movement}`)
     }else{
-        console.log(`Movement ${index+1}: You withdrew ${Math.abs(movement)}`)
+        // console.log(`Movement ${index+1}: You withdrew ${Math.abs(movement)}`)
     }
 });
-console.log('--------------------------------------')
+// console.log('--------------------------------------')
 
 /////////////////////////
 
 let arr = [ 'a', 'b', 'c', 'd', 'e'];
 
 
-console.log(arr.slice(2)); // ["c", "d", "e"]
-console.log(arr.slice(2, 4)); // ["c", "d"]
-console.log(arr.slice(-3)); // ['c', 'd', 'e']
-console.log(arr.slice(1, -2)); // ['b', 'c']
-console.log(arr.slice(-1), 'SLICE -1');
+// console.log(arr.slice(2)); // ["c", "d", "e"]
+// console.log(arr.slice(2, 4)); // ["c", "d"]
+// console.log(arr.slice(-3)); // ['c', 'd', 'e']
+// console.log(arr.slice(1, -2)); // ['b', 'c']
+// console.log(arr.slice(-1), 'SLICE -1');
 
 // coppying rray to new one with slice() method
-console.log(arr.slice()); // ['a', 'b', 'c', 'd', 'e']
+// console.log(arr.slice()); // ['a', 'b', 'c', 'd', 'e']
 // it is possible with spread operators as well
-console.log([...arr]); // ['a', 'b', 'c', 'd', 'e']
+// console.log([...arr]); // ['a', 'b', 'c', 'd', 'e']
 
 // SPLICE method
-console.log("--------splice-------")
+// console.log("--------splice-------")
 // console.log(arr.splice(2)); //  ['c', 'd', 'e']
 
-console.log(arr.splice(1, 3), 'SPLICE 1, 3'); // ['b', 'c', 'd'] 'SPLICE 1, 3'
+// console.log(arr.splice(1, 3), 'SPLICE 1, 3'); // ['b', 'c', 'd'] 'SPLICE 1, 3'
 
-console.log(arr.splice(-1),  'SPLICE -1'); //['e']
-console.log(arr);  // ['a', 'b']
+// console.log(arr.splice(-1),  'SPLICE -1'); //['e']
+// console.log(arr);  // ['a', 'b']
 // SPLICE is mutates the original array.
 
 
 // REVERSE method does actualy mutate originall array
-console.log("------------Reverse---------");
+// console.log("------------Reverse---------");
 arr = [ 'a', 'b', 'c', 'd', 'e'];
 const arr2 = [ 'j', 'i', 'h', 'g', 'f'];
 // console.log(arr2.reverse()); // ['f', 'g', 'h', 'i', 'j'] 
-console.log(arr2, 'ORIGINAL arr2 array');
+// console.log(arr2, 'ORIGINAL arr2 array');
 
 
 // CONCATINATION METHOD
 const letters = arr.concat(arr2.reverse()); 
-console.log(letters);
-console.log([...arr, ...arr2]);
+// console.log(letters);
+// console.log([...arr, ...arr2]);
 
 // JOIN method
-console.log(letters.join(' - '));
+// console.log(letters.join(' - '));
 
 // AT method
-console.log("---------------AT method---------------")
+// console.log("---------------AT method---------------")
 const numArr = [23, 11, 64];
-console.log(numArr[0]);
-console.log(numArr.at(0));
+// console.log(numArr[0]);
+// console.log(numArr.at(0));
 
 // getting the last array element 
-console.log(numArr[numArr.length - 1]); // 64
-console.log(numArr.slice(-1)); // [64]
-console.log(numArr.slice(-2)); // [11, 64]
-console.log(numArr.slice(-1)[0]); // 64
+// console.log(numArr[numArr.length - 1]); // 64
+// console.log(numArr.slice(-1)); // [64]
+// console.log(numArr.slice(-2)); // [11, 64]
+// console.log(numArr.slice(-1)[0]); // 64
 
-console.log(numArr.at(-1)); // 64
-console.log(numArr.at(-2), "this"); // 11
+// console.log(numArr.at(-1)); // 64
+// console.log(numArr.at(-2), "this"); // 11
 
-console.log('Jonas'.at(0));
-console.log('Jonas'.at(-1));
+// console.log('Jonas'.at(0));
+// console.log('Jonas'.at(-1));
 
 
 
