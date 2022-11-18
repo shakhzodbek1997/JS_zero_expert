@@ -61,5 +61,55 @@ console.log(jonas.hasOwnProperty('species')); // false  <-- because this propert
 // it's in the prototype property of person 
 
 
+console.log(jonas.__proto__);
 
+// -------Object Prototype-------
+console.log("--------------Object.prototype(top of prototype chain)--------------");
+console.log(jonas.__proto__.__proto__);
+console.log(jonas.__proto__.__proto__.__proto__);
+
+console.dir(Person.prototype.constructor);
+
+const arr = [3, 6, 4, 5, 6, 9, 9, 6, 9, 3]; // new array === []
+console.log(arr.__proto__ === Array.prototype);
+
+console.log(arr.__proto__.__proto__);
+
+Array.prototype.unique = function(){
+    return [...new Set(this)];
+}
+ 
+console.log(arr.unique()); // [3, 6, 4, 5, 9]
+
+const h1 = document.querySelector('h1');
+ 
+console.dir(x => x + 1);
+
+
+/// Challenge 1 in OOP
+
+const Car = function(make, speed){
+    this.make = make;
+    this.speed = speed; 
+};
+Car.prototype.accelerate = function(){
+    this.speed +=10;
+    console.log(`${this.make} is going at ${this.speed}km/h`)
+} 
+ 
+
+Car.prototype.brake = function(){
+    this.speed -=5;
+    console.log(`${this.make} is going at ${this.speed}km/h`)
+}
+
+const bmw = new Car('BMW', 120);
+const mers = new Car('Mercedes', 95);
+
+bmw.accelerate();
+bmw.brake();
+bmw.accelerate();
+bmw.accelerate();
+bmw.brake();
+bmw.accelerate();
 
