@@ -82,3 +82,4 @@ console.log("------------CHAINING METHOD----------------");
 
 acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
 console.log(acc1.getMovements());
+
