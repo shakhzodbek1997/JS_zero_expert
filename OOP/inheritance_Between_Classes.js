@@ -96,5 +96,43 @@ const martha = new StudentCl('Martha Jonas', 2012,  'CS', 'Canada')
 martha.introduce();
 martha.calcAge();
  
+/////////////////////////Inheritance between "Classes": Object.create///////////////////////////////
+console.log("-----------------Inheritance between 'Classes': Object.create--------------");
+
+const PersonProto = {
+    calcAge(){
+        console.log(2037 - this.birthYear);
+    },
+
+    init (firstName, birthYear){
+        this.firsName = firstName;
+        this.birthYear = birthYear;
+    }
+}
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function(firsName, birthYear, course){
+    PersonProto.init.call(this, firsName, birthYear);
+    this.course = course;
+};
+
+StudentProto.introduce = function(){
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+}
+
+const jay = Object.create(StudentProto);   
+jay.init('Jay', 2010, 'Computer Sciences ');
+jay.introduce();
+jay.calcAge();
+
+
+
+
+
+
+
+
 
 
