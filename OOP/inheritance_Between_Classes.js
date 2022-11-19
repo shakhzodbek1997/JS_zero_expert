@@ -34,9 +34,67 @@ odam.calcAge();
 odam.introduce();
 
 console.log(mike.__proto__);
-console.log(mike.__proto__.__proto__)   
+console.log(mike.__proto__.__proto__);
+
+console.log("-----------------------------------------------");
+
+class PersonCL{
+    constructor(fullName, birthYear){
+        this.fullName = fullName;
+        this.birthYear = birthYear;
+    }
+
+    // Method will be added to .prototype property
+    calcAge(){
+        console.log(2037 - this.birthYear);
+    }
+
+    greeting(){
+        console.log(`Assalomu alaykum ${this.fullName}`)
+    }
+
+    get age(){
+        return 2037 - this.birthYear;
+    }
 
 
+    // Set a property that already exist
+    set fullName(name){
+        if(name.includes(' ')) this._fullName = name;
+        else alert(`${name} is not a Full Name!`);
+    }
 
+    get fullName(){
+        return this._fullName;
+    }
+
+    // Static method
+    static hey(){
+        console.log('Hey THere ✋');
+    }
+} 
+
+class StudentCl extends PersonCL{
+    constructor(fullName, birthYear, course, country){
+        // Always needs to happen first!
+        super(fullName, birthYear);
+        this.course = course;   
+        this.country = country; 
+    }
+
+    introduce(){
+        console.log(`My name is ${this.fullName} and I study ${this.course} and I am From ${this.country}`);
+    }
+
+    calcAge(){
+        console.log(`i ma ${2037 - this.birthYear} years old, 
+        but as a student I fell more like ${2037-this.birthYear+10}`)
+    }
+}
+
+const martha = new StudentCl('Martha Jonas', 2012,  'CS', 'Canada')
+martha.introduce();
+martha.calcAge();
+ 
 
 
